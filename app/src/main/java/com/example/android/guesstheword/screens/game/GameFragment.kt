@@ -58,6 +58,11 @@ class GameFragment : Fragment() {
             updateWordText()
 
         }
+
+        viewModel.score.observe(this, { newScore ->
+            binding.scoreText.text = newScore.toString()
+        })
+
         binding.skipButton.setOnClickListener { viewModel.onSkip() }
         updateScoreText()
         updateWordText()
@@ -87,7 +92,7 @@ class GameFragment : Fragment() {
 
     }
 
-    private fun updateScoreText() {
-        binding.scoreText.text = viewModel.score.toString()
-    }
+//    private fun updateScoreText() {
+//        binding.scoreText.text = viewModel.score.toString()
+//    }
 }
